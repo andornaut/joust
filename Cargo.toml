@@ -1,0 +1,21 @@
+[package]
+name = "joust"
+version = "0.1.0"
+authors = ["andornaut"]
+description = """
+JSON-Only Ultimate System Tray (JOUST) is exactly what it sounds like!
+"""
+edition = "2021"
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/andornaut/joust"
+
+[dependencies]
+anyhow = "~1.0"
+
+[profile.release]
+codegen-units = 1 # Reduce number of codegen units to increase optimizations.
+lto = true        # Enable Link Time Optimization
+opt-level = 'z'   # Optimize for size.
+panic = 'abort'   # Abort on panic
+strip = true      # Symbols from Binary
